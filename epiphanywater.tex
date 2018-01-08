@@ -1,0 +1,153 @@
+\documentclass[12pt, a5paper]{book}     
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{luatextra}
+\usepackage{fontspec}
+\usepackage[autocompile]{gregoriotex}
+\usepackage{lettrine}  		
+\usepackage[savepos]{zref}
+\usepackage{libertine}
+\usepackage{multicol}
+
+\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
+
+\pagestyle{plain}
+\usepackage[pdftex]{geometry}%	
+
+\usepackage[british,latin]{babel}
+
+\pagestyle{plain}
+
+\geometry{papersize={5.75in,8.25in}, inner=0.6in, outer=0.6in, top=0.75in, bottom=1.0in, twoside}
+
+\grechangedim{beforeinitialshift}{0mm}{fixed}
+\grechangestyle{translation}{\it\small}
+
+
+\grechangestaffsize{15}
+
+\grechangestyle{initial}{\fontsize{30}{30}\selectfont}
+
+\title{Blessing of Epiphany Water}
+\author{typeset in Gregorio for the Maternal Heart of Mary Community}
+% \input macros
+
+
+\newlength{\colw}
+\newlength{\colx}
+\newlength{\coly}
+
+\setlength{\colw}{0.48\textwidth}
+
+\setlength{\coly}{5cm}   
+
+\input {common/chapel-style}
+
+\begin{document}
+
+	
+\frontmatter
+
+\def \feast{Blessing of}
+\def \officehour{Epiphany Water}
+\def \titlepic{includes/miscellaneous41.pdf}
+
+\input common/titlepageA5_office
+
+\newpage
+
+\mainmatter
+
+
+
+
+
+
+This blessing comes from the Orient, where the Church has long emphasized in her celebration of Epiphany the mystery of our Lords baptism, and by analogy our baptism. This aspect is not neglected in western Christendom, although in practice we have concentrated on the visit of the Magi. Many years before the Latin Rite officially adopted the blessing of Epiphany water, diocesan rituals, notably in lower Italy, had contained such a blessing.\\
+
+\subsection*{Ritual of Blessing of Epiphany Water}
+
+\noindent {\it 1. At the appointed time the celebrant, vested in white cope (if a bishop, the mitre is worn but removed during the prayers), and the deacon and subdeacon, vested in white dalmatic and tunic respectively, come before the altar. They are preceded by acolytes, who carry the processional cross and lighted candles (which are put in their proper place), and by the other clergy. A vessel of water and a container of salt are in readiness in the sanctuary.}
+
+
+
+\subsection*{The Litany of the Saints}
+
+\input litanies/lit-saints-epi
+
+\noindent{\it The psalms are intoned by the celebrant and then the verses are sung alternately with the congregation.}
+
+
+\subsection*{Psalm 28}
+
+\gresetinitiallines{1}
+\gregorioscore{28-6}
+
+
+\subsection*{Psalm 45}
+
+\gresetinitiallines{1}
+\gregorioscore{45-6}
+
+
+
+\subsection*{Psalm 146}
+
+
+\gresetinitiallines{1}
+\gregorioscore{146-6}
+
+
+
+\subsection*{The Exorcism against Satan and the Apostate Angels}
+
+\noindent{\it The celebrant then chants:}
+
+\input exorcisms
+
+
+\gresetinitiallines{1}
+\gregorioscore{an--hodie_caelesti_sponso--solesmes}
+
+
+\noindent{\it If the Blessing takes place in the evening, the Magnificat is sung. Otherwise the Benedictus is sung.}
+
+\subsection*{Magnificat}
+
+\gresetinitiallines{1}
+\gregorioscore{Magnificat-8Gstar}
+
+
+\subsection*{Benedictus}
+
+\gresetinitiallines{1}
+\gregorioscore{Benedictus-8Gstar}
+
+\noindent{\it The Antiphon is repeated}
+
+\gresetinitiallines{1}
+\gregorioscore{an--hodie_caelesti_sponso--solesmes}
+
+
+
+
+%\input oratio
+
+
+%\subsection*{Exorcism of Salt and Water}
+
+%\input bless_salt
+
+%\subsection*{The Solemn Te Deum}
+
+\gresetinitiallines{1}
+\gregorioscore{hy--te_deum_solemn_tone--solesmes}
+
+
+%\input finaloratio
+
+
+
+
+\end{document}

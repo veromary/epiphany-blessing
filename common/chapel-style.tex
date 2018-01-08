@@ -1,0 +1,227 @@
+
+\def\latin#1{%
+\selectlanguage{latin}
+\ParallelLText{#1\strut}%
+\selectlanguage{british}%
+\relax %
+}
+
+\def\vern#1{%
+\ParallelRText{#1\strut}%
+%\ParallelLText{\ \vspace*{1mm}}\ParallelRText{\ \vspace*{1mm}}%
+\ParallelPar %
+%\kern -1mm%
+\relax %
+}
+
+\def\firstlatin#1#2#3{%
+\latin{%
+\noindent\begin{minipage}[t]{\ParallelLWidth}%
+\lettrine{#1}{#2}#3\strut%\vspace{0.9mm}\vspace{0.13cm}%
+\end{minipage}%
+}%
+%\vspace{-0.2cm}%
+}
+
+\def\firstvern#1#2#3{%
+\vern{%
+\noindent\begin{minipage}[t]{\ParallelRWidth}%
+\lettrine{#1}{#2}#3\strut%\vspace{0.9mm}\vspace{0.13cm}%
+\end{minipage}%
+}%\vspace{-0.2cm}%
+}
+
+\def\firstlatincludge#1#2#3{%
+\latin{%
+\noindent\begin{minipage}[b]{\ParallelLWidth}%
+\lettrine{#1}{#2}#3\strut%\vspace{0.9mm}\vspace{0.13cm}%
+\end{minipage}%
+}%
+%\vspace{-0.2cm}%
+}
+
+\def\firstverncludge#1#2#3{%
+\vern{%
+\noindent\begin{minipage}[b]{\ParallelRWidth}%
+\lettrine{#1}{#2}#3\strut%\vspace{0.9mm}\vspace{0.13cm}%
+\end{minipage}%
+}%\vspace{-0.2cm}%
+}
+
+%%%%%%% er....... yeah. used in \psalmverse to introduce small v space between verses.
+\newdimen\temp 
+\def\twocolspace#1{%
+\temp=#1%
+\advance\temp by 1mm%
+%\twoCols{\ \vspace{\temp}}{\ \vspace{\temp}}%
+\vspace*{\temp}\twoCols{\ }{\ }%
+\kern -1mm%
+\relax %
+}
+%%%%%%%%
+\def\ourTitle#1{\begin{center}\textsc{\fontsize{24}{26}\selectfont #1}\end{center}}
+
+\def\ourEnglish#1{\noindent{{\fontshape{it}\fontsize{10}{10}\selectfont{\selectlanguage{british}#1}}}}
+
+%\def\ourPropers#1{\noindent{\fontsize{10}{10}}}
+
+\def\ourCommentary#1{\noindent{{\fontshape{it}\fontsize{11}{11}\selectfont 
+%\color{ourRed}
+{\selectlanguage{british}#1}}}}
+
+\def\ourCommentaryRed#1{\noindent{{\fontshape{it}\fontsize{11}{11}\selectfont 
+\color{ourRed}
+{\selectlanguage{british}#1}}}}
+
+\def\psalmTitle#1{
+\phantomsection
+\addcontentsline{toc}{subsection}{#1}
+\begin{center}\textsc{\fontsize{14.5}{14.5}\selectfont #1}\end{center}
+}
+
+
+\def\subsecTitle#1{
+%\phantomsection
+\addcontentsline{toc}{subsection}{#1}
+\begin{center}\textsc{\fontsize{14.5}{14.5}\selectfont #1}\end{center}
+}
+
+%\def\secTitle#1{\begin{center}\textit{\fontsize{14}{14}\selectfont #1}\end{center}}
+
+\def\abovelinestextstyle#1{\fontsize{8.5}{8.5}\selectfont\textit{#1}}
+%\def\secTitle#1#2{\begin{center}\textsc{\fontsize{14}{14}\selectfont #1}\liningfigs{ #2}\end{center}}
+\def\secTitle#1#2{
+%\phantomsection
+\addcontentsline{toc}{section}{#1#2}
+\begin{center}
+\fontsize{16}{16}\selectfont{\textsc{#1}\textit{#2}}
+\end{center}
+}
+
+\def\gretranslationformat#1{%
+\textit{#1}\relax%
+}
+
+%\setspaceafterinitial{2.2mm plus 0em minus 0em}
+%\setspacebeforeinitial{1mm plus 0em minus 0em}
+
+
+%%%%%%%%chant text%%%%%%%%%%%
+%\def\gretextformat#1{%
+%{\fontsize{13.5pt}{13.5pt}\selectfont #1}\relax %
+%%{\fontsize{10pt}{10pt}\selectfont #1}\relax %
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\beforeaccent#1{%
+%{\fontfamily{ugm}\fontsize{11.2pt}{11.2pt}\fontshape{it}\selectfont #1}%
+{\fontsize{11.6pt}{13pt}\fontshape{it}\selectfont #1}%the leading should match the text's...maybe? I don't know what the text leading is
+\relax %
+}
+
+\def\accentsyllable#1{%
+{\fontsize{12.6}{13}\selectfont{\textbf{#1}}}%
+\relax %
+}
+
+\def\gregorioscorewithspace#1{%
+\gregorioscore{#1}
+\vspace*{3mm}
+}
+
+\def\beginpsalm{%
+\parskip=0.5mm%
+}
+\def\endpsalm{%
+\parskip=2mm
+}
+\definecolor{ourRed}{RGB}{229,53,44}
+%\renewcommand\grecross{{\color{ourRed}\gregoriansymbolfont \char 70}%fancier cross is char84
+%\relax%
+%}
+
+%%redef from gregoriotex.tex
+%\def\greinitialformat#1{%
+%\fontsize{32}{32}\fontshape{sw}\selectfont #1}
+%%\fontsize{36}{36}\selectfont #1}
+
+%\font\gregoriansymbolfont = gresym at 13.5 pt
+%\def\liningfigs#1{%
+%{\fontfamily{CaslonPro-LF}\fontsize{14pt}{14pt}\fontshape{it}\selectfont #1}
+%}
+%{\fontsize{14}{14}\fontshape{it}\selectfont #1}
+%}
+
+
+%\newcommand{\twoCols}[2]{
+%\hbox{
+%\vtop{
+%\hsize \colw \noindent{#1}
+%}
+%\hskip3mm\vrule\hskip3mm
+%\vtop{
+%\hsize \colw \noindent{#2}\\
+%}
+%}
+%}
+
+\newcommand{\twoColsE}[2]{{\selectlanguage{british}\ParallelLText{\noindent#1}}\selectlanguage{british}\ParallelRText{\noindent#2}\ParallelPar}
+
+\newcommand{\twoColsL}[2]{{\selectlanguage{latin}\ParallelLText{\noindent#1}}\selectlanguage{latin}\ParallelRText{\noindent#2}\ParallelPar}
+
+\newcommand{\gutter}{\hspace{2mm}\vrule\hspace{2mm}}
+
+\def\twoCols#1#2{\noindent\begin{minipage}[t]{\colw}\selectlanguage{latin}#1\strut\end{minipage}\gutter
+\noindent\begin{minipage}[t]{\colw}\selectlanguage{british}#2\strut\end{minipage}\\}
+
+\def\latinwithdropcap#1#2#3#4{
+\noindent\begin{minipage}[t]{\colw}
+\selectlanguage{latin}\lettrine[#1]{#2}{#3} #4\strut%\parfillskip=0em
+\end{minipage}\gutter
+}
+%This is english on the right
+\def\vernacularwithdropcap#1#2#3#4{
+\noindent\begin{minipage}[t]{\colw}
+\selectlanguage{british}\lettrine[#1]{#2}{#3} #4\strut%\parfillskip=0em
+\end{minipage}
+}
+
+%\newcommand{\twoCols}[2]{{\selectlanguage{latin}\ParallelLText{#1}}\selectlanguage{english}\ParallelRText{#2}\ParallelPar}
+
+%\newcommand{\psalmverse}[2]{{{\selectlanguage{latin}\ParallelLText{#1}}\selectlanguage{english}\ParallelRText{#2}\ParallelPar}\twocolspace{-2.9mm}}%%-3.4mm
+
+%\newcommand{\psalmverse}[2]
+%{\noindent{\begin{tabular}{p{\colw}|p{\colw}}{#1}&{#2}}{\end{tabular}}}%%
+
+
+%\def\twoColsAnt#1#2{{\selectlanguage{latin}\ParallelLText{\textbf{\textsc{Ant.\ }}#1}}\selectlanguage{english}\ParallelRText{\textbf{\textsc{Ant.\ }}#2}\ParallelPar}
+
+\def\twoCols#1#2{\noindent\begin{minipage}[t]{\colw}\selectlanguage{latin}#1\strut\end{minipage}\gutter
+\noindent\begin{minipage}[t]{\colw}\selectlanguage{british}#2\strut\end{minipage}\\}
+
+\def\latinwithdropcap#1#2#3#4{
+\noindent\begin{minipage}[t]{\colw}
+\selectlanguage{latin}\lettrine[#1]{#2}{#3} #4\strut%\parfillskip=0em
+\end{minipage}\gutter
+}
+%This is english on the right
+\def\vernacularwithdropcap#1#2#3#4{
+\noindent\begin{minipage}[t]{\colw}
+\selectlanguage{british}\lettrine[#1]{#2}{#3} #4\strut%\parfillskip=0em
+\end{minipage}
+}
+
+\let\textini=\textinitial
+
+\def\textinitial#1#2{\textini#1{\caps#2}}
+
+\def\myModes#1{%
+\gresetfirstlineaboveinitial{\small {\textbf{#1}}}{\small {\textbf{#1}}}
+}
+
+%% imported from Opustex editions
+
+\def\bighead #1{\centerline{\Large #1}\smallskip}
+
+\def\medhead #1{\centerline{\large #1}\smallskip}
+
+\def\smallhead #1{\goodbreak\centerline{\pianotype #1}\smallskip}

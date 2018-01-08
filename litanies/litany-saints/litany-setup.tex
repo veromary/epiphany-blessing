@@ -1,0 +1,67 @@
+
+%\makeatletter  
+%\newcounter{score}
+\newcounter{tabstop}[score]
+\newcommand{\grealign}{%
+	\@bsphack%
+	\ifgre@boxing\else%
+		\kern\gre@dimen@begindifference%
+		\stepcounter{tabstop}%
+		\expandafter\zsavepos{stop-\thescore-\thetabstop}%
+		\kern-\gre@dimen@begindifference%
+	\fi%
+	\@esphack%
+}
+
+\newcommand{\setstops}{%
+ % \gdef\nstabbing@stops{%
+    %\hspace*{-\oddsidemargin}\hspace{-1in}%
+%    \hspace*{\zposx{stop-\thescore-1} sp}\=%
+%  }%
+%  \count@=\@ne
+%  \loop\ifnum\count@<\value{tabstop}%
+ %   \begingroup\edef\x{\endgroup
+      %\noexpand\g@addto@macro\noexpand\nstabbing@stops{%
+        %\noexpand\hspace{-\noexpand\zposx{stop-\thescore-\the\count@} sp}%
+        %\noexpand\hspace{\noexpand\zposx{stop-\thescore-\the\numexpr\count@+1} sp}\noexpand\=%
+ %     }%
+%    }\x
+%    \advance\count@\@ne
+%  \repeat
+%  \nstabbing@stops\kill
+}
+\makeatother
+
+\newenvironment{nstabbing}
+  {\setlength{\topsep}{0pt}%
+   \setlength{\partopsep}{0pt}%
+   \tabbing%
+   \setstops}
+  {\endtabbing\stepcounter{score}}
+
+\gresetinitiallines{0}
+\gresetlastline{justified}
+
+%\gregorioscore{litanies/litany-saints/Litany-I} 
+%\begin{nstabbing}
+%\>Fili \>Re-\>démp-\>tor \>mundi \>\textbf{De}-\>us, \>mi-\>se-\>\textit{ré}-\>\textit{re} \>no-\>bis.\\
+%\>Spí-\>ri-\>tus \>Sancte \>\>\textbf{De}-\>us, \>mi-\>se-\>\textit{ré}-\>\textit{re} \>no-\>bis.\\
+%\>Sancta \>\>Trínitas \>\>unus \>\textbf{De}-\>us, \>mi-\>se-\>\textit{ré}-\>\textit{re} \>no-\>bis.\\
+%\end{nstabbing}
+
+%\gregorioscore{litanies/litany-saints/Litany-II}
+%\begin{nstabbing}
+%\>Sancta De-\>\>i \>\textbf{Gé}-\>nitrix, \>\>ó-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Sancta Vir-\>\>go \>\textbf{ví}r-\>gi-\>num, \>ó-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Sancte \>\>\>\textbf{Mí}cha-\>\>el, \>ó-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Sancte \>\>\>\textbf{Gá}bri-\>\>el, \>ó-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Sancte \>\>\>\textbf{Rá}pha-\>\>el, \>ó-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\end{nstabbing}
+
+%\gregorioscore{litanies/litany-saints/Litany-III}
+%\begin{nstabbing}
+%\>Omnes \>sancti \>beatórum Spirítuum \>\>\textbf{ór}dines, \>\>\>o-\>rá-\>\textit{te} \>\textit{pro} \>no-\>bis.\\
+%\>Sancte \>Joánnes \>\>Ba-\>\textbf{ptí}-\>\>sta, \>\>o-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Sancte \>\>\>\>\textbf{Jo}seph, \>\>\>\>o-\>\textit{ra} \>\textit{pro} \>no-\>bis.\\
+%\>Omnes \>sancti \>Patriárchæ et Proph-\>\>\textbf{é}-\>tæ, \>\>o-\>rá-\>\textit{te} \>\textit{pro} \>no-\>bis.\\
+%\end{nstabbing}

@@ -1,0 +1,189 @@
+\input opustex
+\input opusgre
+
+\magnification 1400
+
+\input linking
+
+\input epsf
+
+%\hsize106mm
+\hsize120mm
+\vsize180mm
+\hoffset-4mm
+\voffset-13mm
+
+%\magnification 1400
+
+\abovesystem1
+\belowsystem8
+
+\raisesong3\Internote
+
+\font\caps = \fontid csc10
+
+\font\rmlyrics = cmr9
+\font\itlyrics = cmti9
+\font\smallit = cmti9
+\font\notelett = cmss8
+\font\smallrm = cmr8
+\font\titelll = cmcsc10 scaled\magstep3
+\font\titell = cmcsc10 scaled\magstep4
+\font\smallcaps = cmcsc10
+\font\twelverm = cmr12 scaled\magstep1
+%The next statement modifies the rm font to include a maltese cross for the + symbol
+\font\rm vbr10
+
+\rm
+
+\let\textini=\textinitial
+
+\def\textinitial#1#2{\textini#1{\caps#2}}
+
+\def\today{\number\day\space
+           \ifcase\month\or
+           January\or February\or March\or April\or May\or June\or
+           July\or August\or September\or October\or November\or December\fi
+           \space \number\year}
+
+\def\loreto#1{{\hskip10mm \itlyrics #1 }}
+
+\def\ngl#1{\cchar{-6}{\itlyrics #1}}
+\def\engl#1{\cchar{-7}{\itlyrics #1}}
+\def\sengl#1{\cchar{-9}{\itlyrics #1}}
+\def\subengl#1{\cchar{-13}{\itlyrics #1}}
+
+\pretolerance=5000
+\tolerance=5000
+
+\def\bgenerale{\ateverysystem{\znotes\bmolle b\gen}}
+
+\font\biggish = cmcsc10 scaled 1200
+
+%From the Hymn book
+\font\bigtype = hmin10 scaled \magstep2
+\font\Bigtype = hmin17 scaled \magstep2
+\font\musicaps = hmin17 scaled \magstep4
+\font\textcaps = hmin17 scaled \magstep3
+
+\def\section#1{{\medskip \biggish #1 \smallskip}}
+\def\subsection*#1{{\medskip \biggish #1 \smallskip}}
+
+\def\bibleref#1#2{\line{#2 \hfill  \it #1}}
+
+\def\celebrant{Cardinal:\ \raggedright}
+\def\all{\strut\phantom{Cardinal:\ }\llap{All:\ }\raggedright}
+\def\deacon{\strut\phantom{Cardinal:\ }\llap{Deacon:\ }\raggedright}
+\def\rubrics#1{{\noindent\it #1}}
+
+%Want to put stand and sit into the margins
+
+\def\marginote#1{\ifodd\pageno \rightnote{#1} \else \leftnote{#1} \fi}
+\def\leftnote#1{\moveleft12mm\vbox to 0mm{\hsize12mm \notelett #1}}
+\def\rightnote#1{\moveright107mm\vbox to 0mm{\hsize12mm \notelett #1}}
+
+\def\stand{\marginote{STAND}}
+\def\sit{\marginote{\quad SIT}}
+\def\kneel{\marginote{KNEEL}}
+
+
+
+\def\rightfoot{\hss\tenrm\folio}
+\def\leftfoot{\tenrm\folio\hss}
+\footline={\ifnum\pageno<0 \hfill \else \ifodd\pageno \rightfoot \else \leftfoot \fi \fi}
+
+%From the Feast of the Assumption
+
+\newdimen\ay
+\newdimen\bee
+
+\def\begp{\begingroup\parindent=0mm\leftskip=-5mm\hsize42.5mm
+                 \global\ay=\pagetotal
+                 \nobreak}
+\def\midp{%\bee=\pagetotal
+          \endgroup\begingroup\parindent=0mm\leftskip=49mm\hsize105mm
+                 \bee=\pagetotal
+           \ifnum\bee<\ay
+\showthe\ay \showthe\bee
+                 \advance\ay by -\pagegoal
+           \fi
+                 \advance\bee by -\ay
+                 \vskip-\bee
+                 }
+\def\endp{\endgroup}
+
+%\def\lateng#1#2#3{\ay=51mm   \bee=51mm
+\def\lateng#1#2#3{\ay=60mm   \bee=60mm
+                  \advance\ay by -#1
+                  \advance\bee by #1
+                  \hbox{\vtop{\hsize\ay #2\strut} \hskip4mm \vtop{\hsize\bee \it #3\strut}}}
+
+%From the Hymnbook
+%\def\lateng#1#2{\moveleft10mm\hbox{\tolerance2000
+%                                         \vtop{\hsize59mm#1}
+%                                         \hskip5mm
+%                                         \vtop{\hsize56mm\it #2}}\vskip2pt}
+
+\def\beginhymn #1.{\centerline{\bigtype \idx{#1}}\par\bigskip}
+
+\def\endhymn{\vfill\eject}
+
+%For the lyrics from the hymnbook
+
+\def\mycr{\par\vskip-\parskip}
+
+\def\beginlyrics{\begingroup
+                       \def\\{\mycr}
+                       \pretolerance=10000
+                       \raggedright
+                       \parskip=5pt
+                       \parindent-3mm}
+\def\endlyrics{\endgroup}
+
+\def\lyrpar#1#2#3{\ay=51mm   \bee=51mm
+                  \advance\ay by -#1
+                  \advance\bee by #1
+                  \hbox{\hskip2mm\vtop{\hsize\ay\def\\{\mycr}
+                       \pretolerance=10000
+                       \raggedright
+                       \parskip=5pt
+                       \parindent-3mm #2} \hskip4mm \vtop{\hsize\bee\def\\{\mycr}
+                       \pretolerance=10000
+                       \raggedright
+                       \parskip=5pt
+                       \parindent-3mm #3}}}
+
+\def\verse#1. {\hskip2mm\llap{{\oldstyle #1}. }}
+
+\def\verses {\hskip2mm}
+
+\def\source#1\par{\rightline{\smallrm #1}}
+
+\def\textsc#1{{\smallcaps #1}}
+
+%\chapter{Saturday}
+
+\parindent0mm
+
+\def\loadmsam{%
+ \font@\tenmsa=msam10
+ \font@\sevenmsa=msam7
+ \font@\fivemsa=msam5
+ \alloc@@8\fam\chardef\sixt@@n\msafam
+ \textfont\msafam=\tenmsa
+ \scriptfont\msafam=\sevenmsa
+ \scriptscriptfont\msafam=\fivemsa
+ \edef\next{\hexnumber@\msafam}%
+ \mathchardef\dabar@"0\next39
+ \edef\dashrightarrow{\mathrel{\dabar@\dabar@\mathchar"0\next4B}}%
+ \edef\dashleftarrow{\mathrel{\mathchar"0\next4C\dabar@\dabar@}}%
+ \let\dasharrow\dashrightarrow
+ \edef\ulcorner{\delimiter"4\next70\next70 }%
+ \edef\urcorner{\delimiter"5\next71\next71 }%
+ \edef\llcorner{\delimiter"4\next78\next78 }%
+ \edef\lrcorner{\delimiter"5\next79\next79 }%
+ \edef\yen{{\noexpand\mathhexbox@\next55}}%
+ \edef\checkmark{{\noexpand\mathhexbox@\next58}}%
+ \edef\circledR{{\noexpand\mathhexbox@\next72}}%
+ \edef\maltese{{\noexpand\mathhexbox@\next7A}}%
+ \global\let\loadmsam\empty}%
