@@ -107,6 +107,7 @@ acs-*.bib
 # gregoriotex
 *.gaux
 *.gtex
+*.glog
 
 # hyperref
 *.brf
